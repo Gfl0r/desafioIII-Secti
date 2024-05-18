@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+.inter-bold{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+            "slnt" 0;
+}
+.inter-regular{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+            "slnt" 0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #F37820;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+}
+section#background {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background: url("../img/imgback.png") no-repeat right;
+    background-size: contain;
+    z-index: 0;
+}
+section#content {
+    margin-left: 85px;
+    background-color: #FFF;
+    width: auto;
+    height: auto;
+    border-radius: 45px;
+    box-shadow: 6px 4px 12px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+section#content #logo {
+    display: none;
+}
+section#content form {
+    margin: 50px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+section#content form fieldset {
+    border: none;
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section#content form fieldset h1 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #F37820;
+    font-weight: bold;
+}
+section#content form fieldset span#line {
+    width: 100%;
+    height: 1px;
+    background-color: #989898;
+    margin: 10px 0;
+}
+section#content form fieldset h2 {
+    margin-bottom: 12px;
+    font-size: 14pt;
+}
+section#content form fieldset input,
+section#content form fieldset select,
+section#content form fieldset textarea {
+    background-color: #FFFAF2;
+    border: 1px solid #CACACA;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #000;
+}
+section#content form fieldset input:focus,
+section#content form fieldset select:focus,
+section#content form fieldset textarea:focus{
+    outline: 1px solid #F37820;
+}
+section#content form fieldset input[type="file"]{
+    display: none;
+}
+section#content form fieldset input.input-metade {
+    width: 49%;
+}
+section#content form fieldset input#bairro,
+section#content form fieldset input#complemento_casa
+{
+    width: 68%;
+}
+section#content form fieldset input#numero_casa,
+section#content form fieldset input#cep {
+    width: 30%;
+}
+section#content form fieldset label.style-input-file {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    width: 100%;
+    display: flex;
+    font-size: 10pt;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+section#content form fieldset label.style-input-file span {
+    display: block;
+    color: #5c5c5c;
+    font-weight: bold;
+}
+section#content form fieldset button,
+.barra-progresso,
+.nao-preenchidos{
+    width: 49%;
+    background-color: #F37820;
+    color: #FFF;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+section#content form fieldset button:hover {
+    background-color: #df6711;
+}
+section#content form fieldset button#primeiro,
+section#content form fieldset button#ultimo{
+    width: 100%;
+}
+section#content form fieldset button.voltarEtapa {
+    background-color: transparent;
+    border: 2px solid #F37820;
+    color: #F37820;
+}
+section#content form fieldset button.voltarEtapa:hover {
+    border: 2px solid #df6711;
+    color: #df6711;
+}
+section#content form fieldset label.style-input-file span.selecione {
+    background-color: transparent;
+    border: 2px solid #097E90;
+    border-radius: 8px;
+    color: #097E90;
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+section#content form fieldset label.style-input-file span.selecione:hover {
+    background-color: #097E90;
+    color: #FFF;
+}
+section#content form fieldset#trilha #checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+section#content form fieldset#trilha #checkbox label {
+    text-align: left;
+    width: 33%;
+}
+section#content form fieldset input[type='checkbox']{
+    width: auto;
+}
+section#content form fieldset {
+    display: none;
+}
+.etapaAtiva {
+    display: flex !important;
+}
+.barra-progresso {
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    padding: 0;
+    background-color: #acd5d8;
+    height: 20px !important;
+    position: relative;
+    cursor: default;
+}
+
+.barra-progresso span.progresso {
+    border-radius: 8px;
+    height: 100%;
+    background: #097E90;
+    width: 25%;
+    display: block;
+    position: absolute;
+    top: 0;
+}
+.barra-progresso span.texto {
+    display: block;
+    z-index: 1000;
+    position: inherit;
+    text-align: center;
+}
+
+section#content form fieldset#confirmacao {
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+.bloco-confirme {
+    border-radius: 8px;
+    border: 1px solid #CACACA;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.bloco-confirme h3 {
+    width: 100%;
+}
+.bloco-confirme .nao-preenchidos {
+    display: none;
+    background-color: #f32b20;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+}
+.bloco-confirme p {
+    font-size: 10px;
+    padding-right: 10px;
+}
+.bloco-confirme .nvalidado {
+    display: block;
+}
+.bloco-confirme.responsavel-desativo {
+    display: none !important;
+}

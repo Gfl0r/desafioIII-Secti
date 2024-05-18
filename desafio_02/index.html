@@ -1,0 +1,258 @@
+<!--
+    Desafio II
+    Trilha Front-End
+    Inova Maranhão - SECTI & FAPEMA
+
+    Geovana de Sousa Freitas
+    gfreitas@acad.ifma.edu.br
+-->
+
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Desafio II - G Freitas</title>
+
+        <!-- Aplicação do design -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+    </head>
+    <body>
+        <!-- Seção com o background do INOVA -->
+        <section id="background"></section>
+
+        <!-- Seção com o conteúdo da página -->
+        <section id="content">
+
+            <!-- Logo do Inova para dispositivos menores -->
+            <div id="logo">
+                <img src="img/logo-inova.png" alt="Inova Maranhão">
+            </div>
+
+            <form id="inscricoes-inova" action="#">
+
+                <!-- Etapa 01 - Dados Pessoais -->
+                <fieldset id="pessoais" class="etapaAtiva">
+
+                    <h1>Inscreva-se</h1>
+                    <span id="line"></span>
+                    <h2>Dados Pessoais</h2>
+
+                    <!-- Campos de entrada -->
+                    <input type="text" name="nome" id="nome" placeholder="Nome completo">
+                    <input type="email" name="email" id="email" placeholder="email@exemplo.com" >
+                    <input class="input-metade" type="text" name="tel" id="tel" placeholder="(00) 0 0000-0000" oninput="telMask(this)" maxlength="14">
+                    <input class="input-metade" type="date" name="data_nascimento" id="data_nascimento" max="2024-01-01" >
+                    <input class="input-metade" type="text" name="cpf" id="cpf" oninput="cpfMask(this)" placeholder="000.000.000-00" maxlength="14">
+                    <input class="input-metade" type="text" name="rg" id="rg" placeholder="Registro Geral" >
+                    <label class="style-input-file" for="file_rg">
+                        <img src="img/file.svg" alt="Vetor de arquivo">
+                        <div id="div-rg">
+                            <h3>Documento de identidade</h3>
+                            Selecione o arquivo
+                            <span>JPG, PNG ou PDF</span>
+                        </div>
+                        <span class="selecione">Selecionar</span>
+                    </label>
+                    <input type="file" name="file_rg" id="file_rg" >
+
+                    <!-- Botão de controle das etapas -->
+                    <button type="button" id="primeiro" onclick="nextEtapa('pessoais', 'responsavel', false)">Próxima etapa</button>
+                    <div class="barra-progresso">
+                        <span class="texto" style="color: #097E90;">25%</span>
+                        <span class="progresso"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Etapa 01.1 - Dados Responsável (para menores) -->
+                <fieldset id="responsavel">
+                    <h2>Dados dos Responsável Legal</h2>
+
+                    <!-- Campos de entrada -->
+                    <input type="text" name="nome_resposavel" id="nome_resposavel" placeholder="Nome completo" >
+                    <input type="email" name="email_resposavel" id="email_resposavel" placeholder="email@exemplo.com" >
+                    <input type="date" name="data_nascimento_resposavel" id="data_nascimento_resposavel" max="2024-01-01">
+                    <input class="input-metade" type="text" name="cpf_resposavel" id="cpf_resposavel" oninput="cpfMask(this)" placeholder="000.000.000-00" maxlength="14">
+                    <input class="input-metade" type="text" name="rg_resposavel" id="rg_resposavel" placeholder="Registro Geral" >
+                    <label class="style-input-file" for="file_rg_responsavel">
+                        <img src="img/file.svg" alt="Vetor de arquivo">
+                        <div id="div-responsavel">
+                            <h3>Identidade do responsável</h3>
+                            Selecione o arquivo
+                            <span>JPG, PNG ou PDF</span>
+                        </div>
+                        <span class="selecione">Selecionar</span>
+                    </label>
+                    <input type="file" name="file_rg_responsavel" id="file_rg_responsavel" >
+
+                    <!-- Botões para circular entre as etapas -->
+                    <button type="button" class="voltarEtapa" onclick="nextEtapa('responsavel', 'pessoais', true)">Voltar</button>
+                    <button type="button" onclick="nextEtapa('responsavel', 'escolaridade', false)">Próxima etapa</button>
+                    <div class="barra-progresso">
+                        <span class="texto" style="color: #097E90;">25%</span>
+                        <span class="progresso"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Etapa 02 - Escolaridade -->
+                <fieldset id="escolaridade">
+                    <h2>Sobre a sua escolaridade</h2>
+
+                    <!-- Campos de entrada -->
+                    <select name="grau_escolaridade" id="grau_escolaridade" >
+                        <option>Ensino Médio incompleto</option>
+                        <option>Ensino Médio em andamento</option>
+                        <option>Graduação em andamento</option>
+                        <option>Graduação completa</option>
+                        <option>Pós-graduação em andamento</option>
+                        <option>Pós-graduação completa</option>
+                    </select>
+                    <input type="text" name="instituicao" id="instituicao" placeholder="Qual a instituição?" >
+                    <input type="text" name="curso" id="curso" placeholder="Qual o curso você fez/faz?">
+                    <input type="text" name="endereco_instituicao" id="endereco_instituicao" placeholder="Qual o endereço da instituição?" >
+                    <label class="style-input-file" for="file_diploma">
+                        <img src="img/file.svg" alt="Vetor de arquivo">
+                        <div id="div-diploma">
+                            <h3>Diploma de conclusão</h3>
+                            Selecione o arquivo
+                            <span>JPG, PNG ou PDF</span>
+                        </div>
+                        <span class="selecione">Selecionar</span>
+                    </label>
+                    <input type="file" name="file_diploma" id="file_diploma" >
+
+                    <!-- Botões para circular entre as etapas -->
+                    <button type="button" class="voltarEtapa" onclick="nextEtapa('escolaridade', 'responsavel', true)">Voltar</button>
+                    <button type="button" onclick="nextEtapa('escolaridade', 'endereco', false)">Próxima etapa</button>
+                    <div class="barra-progresso">
+                        <span class="texto">50%</span>
+                        <span style="width: 50%;" class="progresso"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Etapa 03 - Endereço -->
+                <fieldset id="endereco">
+
+                    <h2>Informações de endereço</h2>
+
+                    <!-- Campos de entrada -->
+                    <input type="text" name="logradouro" id="logradouro" placeholder="Logradouro">
+                    <input type="text" name="bairro" id="bairro" placeholder="Bairro" >
+                    <input type="text" name="numero_casa" id="numero_casa" placeholder="Número" >
+                    <input type="text" name="complemento_casa" id="complemento_casa" placeholder="Complemento">
+                    <input type="text" name="cep" id="cep" placeholder="CEP 00.000-00" oninput="searchCep(this)" maxlength="10">
+                    <input class="input-metade" type="text" name="cidade" id="cidade" placeholder="Cidade" disabled>
+                    <input  class="input-metade" type="text" name="estado" id="estado" placeholder="Estado" disabled>
+                    <label class="style-input-file" for="comprovante_residencia">
+                        <img src="img/file.svg" alt="Vetor de arquivo">
+                        <div id="div-comprovante">
+                            <h3>Comprovante de residência</h3>
+                            Selecione o arquivo
+                            <span>JPG, PNG ou PDF</span>
+                        </div>
+                        <span class="selecione">Selecionar</span>
+                    </label>
+                    <input type="file" name="comprovante_residencia" id="comprovante_residencia" >
+
+                    <!-- Botões para circular entre as etapas -->
+                    <button type="button" class="voltarEtapa" onclick="nextEtapa('endereco', 'escolaridade', true)">Voltar</button>
+                    <button type="button" onclick="nextEtapa('endereco', 'trilha', false)">Próxima etapa</button>
+                    <div class="barra-progresso">
+                        <span class="texto">75%</span>
+                        <span style="width: 75%;" class="progresso"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Etapa 04 - Sobre o programa -->
+                <fieldset id="trilha">
+
+                    <!-- Campos de entrada -->
+                    <select name="qual_trilha" id="qual_trilha">
+                        <option>UX Design</option>
+                        <option>Programação front-end</option>
+                        <option>Programação back-end</option>
+                        <option>Programação de jogos</option>
+                    </select>
+                    <textarea name="ja_conhece" id="ja_conhece" cols="30" rows="5" placeholder="Já conhece a área? Tem alguma experiência?"></textarea>
+                    <textarea name="porque" id="porque" cols="30" rows="5" placeholder="Por que você quer participar do programa?"></textarea>
+                    <div id="checkbox">
+                        <h5 style="width: 100%;">Como você ficou sabendo do programa?</h5>
+                        <label>
+                            <input type="checkbox" name="conheceu[]" value="Site Oficial"> Site oficial
+                        </label>
+                        <label>
+                            <input type="checkbox" name="conheceu[]" value="Rede Social"> Redes sociais
+                        </label>
+                        <label>
+                            <input type="checkbox" name="conheceu[]" value="Instagram"> Instagram
+                        </label>
+                        <label>
+                            <input type="checkbox" name="conheceu[]" value="Facebook"> Facebook
+                        </label>
+                        <label>
+                            <input type="checkbox" name="conheceu[]" value="Google"> Google
+                        </label>
+                        <label>
+                            <input type="checkbox" name="conheceu[]" value="Whatsapp"> WhatsApp
+                        </label>
+                        <label style="width: 100%;">
+                            <input type="checkbox" name="conheceu[]" value="Outro"> Outro (especificar):
+                            <input type="text" name="outroMeio">
+                        </label>
+                    </div>
+
+                    <!-- Botões para circular entre as etapas -->
+                    <button type="button" class="voltarEtapa" onclick="nextEtapa('trilha', 'endereco', true)">Voltar</button>
+                    <button type="button" onclick="nextEtapa('trilha', 'confirmacao', false)" >Enviar</button>
+                    <div class="barra-progresso">
+                        <span class="texto">100%</span>
+                        <span style="width: 100%;" class="progresso"></span>
+                    </div>
+                </fieldset>
+
+                <!-- Confirmação e validação dos dados -->
+                <fieldset id="confirmacao">
+
+                    <h2>Confirme todos os dados</h2>
+
+                    <!-- Blocos de confirmação (exibem tudo que foi preenchido e o que está faltando) -->
+                    <div class="bloco-confirme" id="confirme-pessoais">
+                        <h3>Dados Pessoais</h3>
+                        <span class="nao-preenchidos" id="np-pessoais"></span>
+                    </div>
+                    <div class="bloco-confirme responsavel-desativo" id="confirme-responsavel">
+                        <h3>Dados Responsável</h3>
+                        <span class="nao-preenchidos" id="np-responsavel"></span>
+                    </div>
+                    <div class="bloco-confirme" id="confirme-escolaridade">
+                        <h3>Dados sobre escolaridade</h3>
+                        <span class="nao-preenchidos" id="np-escolaridade"></span>
+                    </div>
+                    <div class="bloco-confirme" id="confirme-endereco">
+                        <h3>Endereço</h3>
+                        <span class="nao-preenchidos" id="np-endereco"></span>
+                    </div>
+                    <div class="bloco-confirme" id="confirme-trilha">
+                        <h3>Sobre o programa</h3>
+                        <span class="nao-preenchidos" id="np-trilha"></span>
+                    </div>
+
+                    <!-- Botão para voltar -->
+                    <button type="button" class="voltarEtapa" onclick="nextEtapa('confirmacao', 'trilha', true)">Voltar</button>
+
+                    <!-- Botão para enviar inscrição (se estiver tudo preenchido) -->
+                    <button type="button" onclick="enviar()">Enviar inscrição</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Scripts -->
+        <script src="js/validation.js"></script>
+        <script src="js/masks.js"></script>
+        <script src="js/script.js"></script>
+
+    </body>
+</html>

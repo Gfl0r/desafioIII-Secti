@@ -1,0 +1,62 @@
+/* Estilos para telas menores */
+@media (max-width: 1200px){
+    body {
+        justify-content: center;
+    }
+    section#background {
+        display: none;
+    }
+    section#content {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        justify-content: center;
+        background-color: #FFF;
+    }
+
+    section#content {
+        margin: 50px 60px;
+        box-shadow: none;
+        border-radius: 0;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    section#content #logo {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    section#content #logo img {
+        height: 100%;
+    }
+    section#content form {
+        margin: 0;
+    }
+
+    section#content form fieldset,
+    section#content form fieldset input#bairro,
+    section#content form fieldset input#complemento_casa,
+    section#content form fieldset input#numero_casa,
+    section#content form fieldset input#cep,
+    section#content form fieldset label.style-input-file,
+    section#content form fieldset #checkbox,
+    section#content form fieldset #checkbox label,
+    section#content form fieldset input.input-metade
+    {
+        width: 100%;
+    }
+    section#content form fieldset label.style-input-file img{
+        display: none;
+    }
+    section#content form fieldset#confirmacao {
+        max-height: 70vh;
+    }
+}
+
