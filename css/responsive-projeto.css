@@ -1,0 +1,12 @@
+@media (max-width: 578px) {
+    body section {
+        flex-direction: column;
+    }
+    body section div#frame-photo {
+        flex-wrap: wrap;
+    }
+    body section div#frame-photo a {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

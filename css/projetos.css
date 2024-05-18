@@ -1,0 +1,53 @@
+body section {
+    flex-wrap: wrap;
+}
+body section div#content {
+    width: 100%;
+    height: auto;
+}
+body section div#frame-photo {
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+body section div#frame-photo a {
+    width: 32%;
+    position: relative;
+}
+body section div#frame-photo a::after {
+    content: '';
+    background: rgba(205, 87, 255, 0.9);
+    width: 97%;
+    height: 94%;
+    border-radius: 8px;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    color: #FFF;
+    font-family: Lato, sans-serif;
+    text-align: center;
+}
+body section div#frame-photo a:hover::after{
+    display: flex;
+}
+body section div#frame-photo #projeto-1:hover::after{
+    content: 'Página de inscrição do Desafio II da Trilha de Front-End do programa Inova Maranhão';
+}
+body section div#frame-photo #projeto-2:hover::after{
+    content: 'Sistemas do Desafio I da Trilha de Front-End do programa Inova Maranhão';
+}
+body section div#frame-photo #projeto-3:hover::after{
+    content: 'Página de inscrição do Desafio II da Trilha de Front-End do programa Inova Maranhão';
+}
+body section div#frame-photo a img {
+    width: 100%;
+}
+body section div#frame-photo a img:first-of-type {
+    margin-left: 0;
+}
